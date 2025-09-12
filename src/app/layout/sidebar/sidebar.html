@@ -1,0 +1,24 @@
+<nav class="vh-100 p-3 border border-0 shadow-lg rounded-end-3 text-center z-2" style="width: 260px">
+  <div class="mb-5">
+    <img src="assets/images/sidebar/brisk-logo.svg" alt="" />
+  </div>
+  <ul class="nav flex-column text-start">
+    <li class="nav-item">
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        class="nav-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <img src="assets/images/sidebar/dashboard.svg" alt="Dashboard" class="logo" />
+        Dashboard
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/projects" routerLinkActive="active" class="nav-link"
+        ><img src="assets/images/sidebar/projects.svg" alt="Dashboard" class="logo" />
+        Projects
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,31 @@
+nav{
+  border-top-right-radius: 24px;
+  border-bottom-right-radius:24px;
+}
+
+.nav-link{
+  border-radius: 16px;
+  color:gray;
+  padding-top:15px;
+  padding-bottom: 15px;
+}
+
+.nav-link.active {
+  background-color: #8a2be2;
+  color: white;
+  border-radius: 16px;
+  font-weight: bold;
+}
+
+.nav-item{
+  margin-bottom: 15px;
+}
+
+.logo{
+  margin-right: 5px;
+}
+
+.nav-link.active img.logo {
+  filter: brightness(0) invert(1); 
+}
+
