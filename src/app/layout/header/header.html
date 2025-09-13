@@ -1,9 +1,31 @@
-<div class="pt-5 px-4">
-  <p>header works!</p>
+<div class="pt-5 px-4 d-flex justify-content-between">
+  <div
+    class="d-flex align-items-center bg-bs-light rounded-pill px-3 py-2 shadow-sm cursor flex-wrap"
+  >
+    <img src="assets/images/header/search.svg" alt="search-icon" />
+    <input type="text" placeholder="Search..." />
+    <img src="assets/images/header/stars.svg" alt="stars-icon" />
+  </div>
 
-  <div class="bg-white px-4 py-2 rounded-circle">
-    <img src="assets/images/header/search.svg" alt="">
-    <input type="text" placeholder="Search...">
-    <img src="assets/images/header/stars.svg" alt="stars">
+  <div class="d-flex align-items-center">
+    <div
+      class="d-flex align-items-center bg-bs-light rounded-pill px-3 py-3 shadow-sm cursor flex-wrap"
+    >
+      <input type="checkbox" name="theme"/>
+      <label for="">
+        <img src="assets/images/header/sun.svg" alt="moon-icon" />
+        <img src="assets/images/header/moon.svg" alt="moon-icon"
+      /></label>
+    </div>
+    
+    <!-- select language -->
+    <div class="px-5">
+      <img src="assets/images/header/global.svg" alt="">
+      <select [(ngModel)]="selectedLanguage" name="languageSelect">
+        <option *ngFor="let language of languages" [value]="language.val">{{ language.lang }}</option>
+      </select>
+    </div>
+
+
   </div>
 </div>
