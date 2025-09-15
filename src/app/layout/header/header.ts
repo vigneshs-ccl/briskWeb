@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
+
 
 interface Languages  {
   lang:string;
@@ -12,7 +12,7 @@ interface Languages  {
 @Component({
   selector: 'app-header',
   standalone:true,
-  imports: [FormsModule,CommonModule,NgSelectModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './header.html',
   styleUrls: ['./header.scss']
 })
@@ -24,8 +24,16 @@ export class Header {
     { lang: 'Hindi', val: 'hi' },
   ];
 
-  // selectedLanguage: Languages = this.languages[0];
-
+  dropdownWidth = '150px'; 
+  dropdownHeight = '50px';
   selectedLanguage = "en"
 
+
+  // dark/light mode:
+  isDarkMode = false;
+
+  toggleTheme() {
+    // dark theme implementation section
+    console.log('Dark Mode:', this.isDarkMode);
+  }
 }

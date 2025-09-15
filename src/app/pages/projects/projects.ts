@@ -1,11 +1,229 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+
+export interface Project {
+  projectName: string;
+  poNumber: string;
+  createdBy: string;
+  createdOn: string;
+  client: string;
+  createdProjectOperation: string;
+  status: string;
+  id: string;
+}
 
 @Component({
-  selector: 'app-projects',
-  imports: [],
+  selector: 'app-project-table',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './projects.html',
-  styleUrl: './projects.scss'
+  styleUrls: ['./projects.scss']
 })
-export class Projects {
+export class Projects implements OnInit {
+  displayedColumns: string[] = [
+    'sno',
+    'projectName',
+    'poNumber',
+    'createdBy',
+    'client',
+    'createdOn',
+    'createdProjectOperation',
+    'status',
+    'action'
+  ];
 
+  dataSource = new MatTableDataSource<Project>([]);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngOnInit(): void {
+    const projects: Project[] = [
+      {
+        projectName: 'testing',
+        poNumber: 'test123',
+        createdBy: 'balaji',
+        createdOn: '2025-08-12',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '689af115e75ffe5a989fbe17'
+      },
+      {
+        projectName: 'testing',
+        poNumber: 'test123',
+        createdBy: 'balaji',
+        createdOn: '2025-08-12',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '689af115e75ffe5a989fbe17'
+      },
+      {
+        projectName: 'testing',
+        poNumber: 'test123',
+        createdBy: 'balaji',
+        createdOn: '2025-08-12',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '689af115e75ffe5a989fbe17'
+      },
+      {
+        projectName: 'testing',
+        poNumber: 'test123',
+        createdBy: 'balaji',
+        createdOn: '2025-08-12',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '689af115e75ffe5a989fbe17'
+      },
+      {
+        projectName: 'testing',
+        poNumber: 'test123',
+        createdBy: 'balaji',
+        createdOn: '2025-08-12',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '689af115e75ffe5a989fbe17'
+      },
+      {
+        projectName: 'testing',
+        poNumber: 'test123',
+        createdBy: 'balaji',
+        createdOn: '2025-08-12',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '689af115e75ffe5a989fbe17'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+       createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'Lidl-test',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'sudhan',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025/07/14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      },
+      {
+        projectName: 'vicky',
+        poNumber: 'Lidl-test',
+        createdBy: 'vinay',
+        createdOn: '2025-07-14',
+        client: 'Test Client',
+        createdProjectOperation: '1',
+        status: 'SUCCESS',
+        id: '68750fa67cf4086a2784f72b'
+      }
+    ];
+    this.dataSource = new MatTableDataSource(projects);
+  }
+
+ ngAfterViewInit() {
+  this.dataSource.paginator = this.paginator;
+  this.paginator.pageSize = 12;
+}
+
+  onEdit(project: Project) {
+    console.log('Edit clicked', project);
+  }
+
+  onDelete(project: Project) {
+    console.log('Delete clicked', project);
+  }
 }

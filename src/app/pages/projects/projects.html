@@ -1,1 +1,115 @@
-<p>projects works!</p>
+<div class="w-100 project-container border-rd-25 bg-white mb-2">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="">Projects</h3>
+
+    <div class="d-flex justify-content-between align-items-center gap-2">
+      <div>
+        <button class="create-btn d-flex align-items-center">
+          <img src="assets/images/projects/add.svg" alt="add-icon" width="24" class="me-2" />
+          <span>Create</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="p-table">
+      <!-- S.No Column -->
+      <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef>S.No</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <!-- Project Name -->
+      <ng-container matColumnDef="projectName">
+        <th mat-header-cell *matHeaderCellDef>Project Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.projectName }}</td>
+      </ng-container>
+
+      <!-- PO Number -->
+      <ng-container matColumnDef="poNumber">
+        <th mat-header-cell *matHeaderCellDef>PO Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.poNumber }}</td>
+      </ng-container>
+
+      <!-- Created By -->
+      <ng-container matColumnDef="createdBy">
+        <th mat-header-cell *matHeaderCellDef>Created By</th>
+        <td mat-cell *matCellDef="let element">{{ element.createdBy }}</td>
+      </ng-container>
+
+      <!-- Client -->
+      <ng-container matColumnDef="client">
+        <th mat-header-cell *matHeaderCellDef>Client</th>
+        <td mat-cell *matCellDef="let element">{{ element.client }}</td>
+      </ng-container>
+
+      <!-- Created On -->
+      <ng-container matColumnDef="createdOn">
+        <th mat-header-cell *matHeaderCellDef>Created On</th>
+        <td mat-cell *matCellDef="let element">{{ element.createdOn }}</td>
+      </ng-container>
+
+      <!-- Created Project Operation -->
+      <ng-container matColumnDef="createdProjectOperation">
+        <th mat-header-cell *matHeaderCellDef>Created Project Operation</th>
+        <td mat-cell *matCellDef="let element" style="text-align: center; color: #dc3545">
+          {{ element.createdProjectOperation }}
+        </td>
+      </ng-container>
+
+      <!-- Status -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element" style="color: #30b0a0">{{ element.status }}</td>
+      </ng-container>
+
+      <!-- Action -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="dropdown">
+            <button
+              class="btn p-0 border-0"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="assets/images/projects/menu.svg" alt="Menu" width="20" height="20" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <button class="dropdown-item d-flex align-items-center" (click)="onEdit(element)">
+                  <img src="assets/edit.svg" class="me-2" width="18" height="18" /> Edit
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item d-flex align-items-center" (click)="onDelete(element)">
+                  <img src="assets/delete.svg" class="me-2" width="18" height="18" /> Delete
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item d-flex align-items-center">
+                  <img src="assets/close.svg" class="me-2" width="18" height="18" /> Close
+                </button>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <!-- Fixed page size, styled paginator -->
+    <mat-paginator
+      [length]="dataSource.data.length"
+      [pageSize]="12"
+      [pageSizeOptions]="[12]"
+      showFirstLastButtons
+      class="custom-paginator"
+    >
+    </mat-paginator>
+  </div>
+</div>

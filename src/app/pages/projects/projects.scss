@@ -1,0 +1,78 @@
+.project-container{
+  padding:26px 28px;
+}
+
+.create-btn{
+  background-color: #8d1cff;
+  color: white;
+  padding: 14.5px 17px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 16px;
+  font-weight:700;
+}
+
+.p-table {
+
+  th {
+    background-color: #f4e8ff;
+    font-size: 13px;
+    font-family: "Satoshi";
+
+    font-weight: bold;
+  }
+
+  td {
+    font-size: 13px;
+    font-family: "Satoshi";
+    font-weight: 400;
+  }
+}
+
+// custom paginator
+
+.custom-paginator {
+  display: flex;
+  justify-content: end;
+  padding: 10px 0;
+  background: none !important;
+}
+
+::ng-deep .mat-mdc-paginator-range-label,
+::ng-deep .mat-mdc-paginator-page-size {
+  display: none !important; /* hide default labels */
+}
+
+::ng-deep .mat-mdc-paginator-navigation-previous,
+::ng-deep .mat-mdc-paginator-navigation-next,
+::ng-deep .mat-mdc-paginator-navigation-first,
+::ng-deep .mat-mdc-paginator-navigation-last {
+  color: gray !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions button:hover {
+  background-color: #e4e4e7 !important;
+}
+
+::ng-deep .mat-mdc-paginator-page {
+  color: gray !important;
+  margin: 0 4px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::ng-deep .mat-mdc-paginator-page-active {
+  background-color: #8a2be2 !important; /* purple */
+  color: white !important;
+}

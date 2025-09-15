@@ -1,0 +1,214 @@
+.search-icon{
+  border-radius: 50%;
+}
+
+.star{
+  color:#8d1cff;
+  font-size: 1.5rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important; /* Removes the glowing shadow in Bootstrap */
+  border-color: initial !important; /* Resets border color to its default state */
+}
+
+.form-input-search{
+  width: 200px;
+  font-weight: 400;
+  font-size: 16px !important;
+  font-family: "Satoshi";
+}
+
+.search-container{
+  padding-top: .8rem;
+  padding-bottom: .8rem;
+}
+
+/* Container around the globe icon */
+.globe-container {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  left: -22px;
+  border-radius: 50% !important;
+  display: flex;
+  border: 0.2px solid #96969a !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+  appearance: none; /* Removes default styles for consistency */
+  text-align: center;
+  padding: 6px 10px;
+  border: 1px solid;
+   background-image: url("data:image/svg+xml;utf8,<svg width='14' height='14' viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'><path d='M7.01744 10.398C6.91269 10.3985 6.8089 10.378 6.71215 10.3379C6.61541 10.2977 6.52766 10.2386 6.45405 10.1641L1.13907 4.84913C1.03306 4.69404 0.985221 4.5065 1.00399 4.31958C1.02276 4.13266 1.10693 3.95838 1.24166 3.82747C1.37639 3.69655 1.55301 3.61742 1.74039 3.60402C1.92777 3.59062 2.11386 3.64382 2.26584 3.75424L7.01744 8.47394L11.769 3.75424C11.9189 3.65709 12.097 3.61306 12.2748 3.62921C12.4527 3.64535 12.6199 3.72073 12.7498 3.84328C12.8797 3.96582 12.9647 4.12842 12.9912 4.30502C13.0177 4.48162 12.9841 4.662 12.8958 4.81724L7.58083 10.1322C7.50996 10.2125 7.42344 10.2775 7.32656 10.3232C7.22968 10.3689 7.12449 10.3944 7.01744 10.398Z' fill='gray'/></svg>");
+   background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  border-radius: 12px;
+  color: gray; /* Default text color */
+  background-color: #fff;
+  cursor: pointer;
+  border-color: #dee2e6;
+  /* Allow manual resizing via ngStyle */
+  min-width: 120px;
+  min-height: 35px;
+
+
+  /* Optional: Hover effect on the whole select */
+  &:focus {
+    outline: none;
+  }
+}
+
+.lang-option {
+    color: #555;
+    background-color: #fff;
+}
+
+.lang-option:hover {
+    background-color: #8a2be2;
+}
+
+
+  /* Arrow styling */
+.dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  pointer-events: none; /* Prevent blocking clicks */
+  color: gray;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+/* Optional: Rotate arrow on hover */
+.custom-dropdown:hover + .dropdown-arrow {
+  color: #8a2be2;
+  transform: rotate(180deg);
+}
+
+
+.globe-container {
+  position: absolute;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  left: -22px;
+  border-radius: 50% !important;
+  display: flex;
+  border: 0.2px solid #96969a !important;
+  align-items: center;
+  justify-content: center;
+}
+
+// theme conatainer
+/* Container styling */
+.theme-toggle-container {
+  padding: 10px;
+}
+
+/* Switch Wrapper */
+.custom-switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+}
+
+/* Hide native checkbox */
+.custom-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider (background track) */
+.custom-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgb(58, 58, 58);
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  background-image: url("/assets/images/header/sun.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 30px;
+
+  /* Thumb (circle) */
+  &::before {
+    content: "";
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    left: 4px;
+    top: 2px; 
+    background-color: white;
+    border-radius: 50%;
+    background-image: url("/assets/images/header/moon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+  }
+}
+
+/* When checked - animate to dark mode look */
+.custom-switch-input:checked + .custom-switch-slider {
+  background-color: rgb(232, 232, 233);
+  background-image: url("/assets/images/header/moon.svg");
+  background-position: left 10px center;
+
+  &::before {
+    transform: translateX(44px);
+    background-image: url("/assets/images/header/sun.svg");
+  }
+}
+
+
+// user profile section
+.profile{
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+// user profile drop-down
+
+.dropdown-menu {
+  min-width: 180px;
+  border-radius: 12px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  color: gray;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background-color: #8a2be2;
+    color: #fff;
+
+    img {
+      filter: brightness(0) invert(1); /* makes icons white on hover */
+    }
+  }
+}
+
+button.btn i.bi {
+  font-size: 1.2rem;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+button.btn[aria-expanded="true"] i.bi {
+  transform: rotate(180deg);
+}
