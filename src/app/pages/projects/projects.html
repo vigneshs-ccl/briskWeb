@@ -3,31 +3,71 @@
     <h3 class="">Projects</h3>
     <div class="d-flex justify-content-between align-items-center gap-2">
       <div>
-        <button class="create-btn d-flex align-items-center">
+        <button class="create-btn d-flex align-items-center" (click)="showDialog()">
           <img src="assets/images/projects/add.svg" alt="add-icon" width="24" class="me-2" />
           <span>Create</span>
         </button>
       </div>
       <div class="card flex justify-center">
-        <p-button (click)="showDialog()" label="Create" />
+        <!-- <p-button (click)="showDialog()" label="Create" /> -->
         <p-dialog
           header="Create New Project"
           [modal]="true"
           [(visible)]="visible"
-          [style]="{ width: '60rem',height:'60rem',backgroundColor:'white',color:'black' }"
+          [style]="{ width: '60rem', height: '60rem' }"
+          styleClass="custom-dialog"
         >
-          <span class="p-text-secondary block mb-8">Update your information.</span>
-          <div class="flex items-center gap-4 mb-4">
-            <label for="username" class="font-semibold w-24">Username</label>
-            <input pInputText id="username" class="flex-auto" autocomplete="off" />
-          </div>
-          <div class="flex items-center gap-4 mb-8">
-            <label for="email" class="font-semibold w-24">Email</label>
-            <input pInputText id="email" class="flex-auto" autocomplete="off" />
-          </div>
-          <div class="flex justify-end gap-2">
-            <p-button label="Cancel" severity="secondary" (click)="visible = false" />
-            <p-button label="Save" (click)="visible = false" />
+          <div class="project-form">
+            <div class="field">
+              <label for="projectName">Project Name</label>
+              <input pInputText id="projectName"  />
+            </div>
+
+            <div class="field">
+              <label for="poNumber">PO Number</label>
+              <input pInputText id="poNumber"  />
+            </div>
+
+            <div class="field">
+              <label for="createdBy">Created By</label>
+              <input pInputText id="createdBy"  />
+            </div>
+
+            <div class="field">
+              <label for="createdOn">Created On</label>
+              <input pInputText id="createdOn"  type="date" onclick="datePicker()"/>
+            </div>
+
+            <div class="field">
+              <label for="client">Client</label>
+              <input pInputText id="client"  />
+            </div>
+
+            <div class="field">
+              <label for="createdProjectOperation">Project Operation</label>
+              <input
+                pInputText
+                id="createdProjectOperation"
+                
+              />
+            </div>
+
+            <div class="field">
+              <label for="status">Status</label>
+              <input pInputText id="status"  />
+            </div>
+
+            <div class="field">
+              <label for="id">Project ID</label>
+              <input pInputText id="id" readonly />
+            </div>
+
+            <div class="flex justify-end gap-2 mt-4">
+              <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+              <p-button label="Create"/>
+              <!-- <p-button label="Save"
+               (click)="saveProject()" /> -->
+            </div>
           </div>
         </p-dialog>
       </div>

@@ -7,7 +7,6 @@ import {
 import { provideRouter } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon'; 
-
 import { providePrimeNG } from 'primeng/config';
 import { PaginatorModule } from 'primeng/paginator';
 import { routes } from './app.routes';
