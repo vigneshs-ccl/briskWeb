@@ -1,17 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 import { PaginatorModule } from 'primeng/paginator';
 import { Dialog } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { AvatarModule } from 'primeng/avatar';
-
+import { MenuItem } from 'primeng/api';
+import { TableModule } from 'primeng/table';
+import { MenuModule } from 'primeng/menu';
 
 export interface Project {
   projectName: string;
@@ -29,38 +25,22 @@ export interface Project {
   standalone: true,
   imports: [
     CommonModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatSortModule,
-    MatButtonModule,
-    MatIconModule,
-    PaginatorModule,
+    TableModule,MenuModule,
     Dialog,
     ButtonModule,
     InputTextModule,
-    AvatarModule
+
   ],
   templateUrl: './projects.html',
   styleUrls: ['./projects.scss']
 })
 export class Projects implements OnInit {
-  displayedColumns: string[] = [
-    'sno',
-    'projectName',
-    'poNumber',
-    'createdBy',
-    'client',
-    'createdOn',
-    'createdProjectOperation',
-    'status',
-    'action'
-  ];
-
-  dataSource = new MatTableDataSource<Project>([]);
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+   projects:Project[] = [];
+   actionItems: MenuItem[] = [];
+    
 
   ngOnInit(): void {
-    const projects: Project[] = [
+    this.projects = [
       {
         projectName: 'testing',
         poNumber: 'test123',
@@ -222,22 +202,11 @@ export class Projects implements OnInit {
         id: '68750fa67cf4086a2784f72b'
       }
     ];
-    this.dataSource = new MatTableDataSource(projects);
+     this.actionItems = [
+      { label: 'Edit', icon: 'pi pi-pencil' },
+      { label: 'Delete', icon: 'pi pi-trash' }
+    ];
   }
-
- ngAfterViewInit() {
-  this.dataSource.paginator = this.paginator;
-  this.paginator.pageSize = 12;
-}
-
-  onEdit(project: Project) {
-    console.log('Edit clicked', project);
-  }
-
-  onDelete(project: Project) {
-    console.log('Delete clicked', project);
-  }
-
   // dialog form
    visible: boolean = false;
 

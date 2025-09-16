@@ -1,185 +1,119 @@
 <div class="w-100 project-container border-rd-25 bg-white mb-2">
+  <!-- Header with Create button -->
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h3 class="">Projects</h3>
-    <div class="d-flex justify-content-between align-items-center gap-2">
-      <div>
-        <button class="create-btn d-flex align-items-center" (click)="showDialog()">
-          <img src="assets/images/projects/add.svg" alt="add-icon" width="24" class="me-2" />
-          <span>Create</span>
-        </button>
+    <button class="create-btn d-flex align-items-center" (click)="showDialog()">
+      <img src="assets/images/projects/add.svg" alt="add-icon" width="24" class="me-2" />
+      <span>Create</span>
+    </button>
+  </div>
+
+  <!-- Dialog moved OUTSIDE flex row -->
+  <p-dialog
+    header="Create New Project"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '60rem', height: '60rem' }"
+    styleClass="custom-dialog"
+  >
+    <div class="project-form">
+      <div class="field">
+        <label for="projectName">Project Name</label>
+        <input pInputText id="projectName" />
       </div>
-      <div class="card flex justify-center">
-        <!-- <p-button (click)="showDialog()" label="Create" /> -->
-        <p-dialog
-          header="Create New Project"
-          [modal]="true"
-          [(visible)]="visible"
-          [style]="{ width: '60rem', height: '60rem' }"
-          styleClass="custom-dialog"
-        >
-          <div class="project-form">
-            <div class="field">
-              <label for="projectName">Project Name</label>
-              <input pInputText id="projectName"  />
-            </div>
 
-            <div class="field">
-              <label for="poNumber">PO Number</label>
-              <input pInputText id="poNumber"  />
-            </div>
+      <div class="field">
+        <label for="poNumber">PO Number</label>
+        <input pInputText id="poNumber" />
+      </div>
 
-            <div class="field">
-              <label for="createdBy">Created By</label>
-              <input pInputText id="createdBy"  />
-            </div>
+      <div class="field">
+        <label for="createdBy">Created By</label>
+        <input pInputText id="createdBy" />
+      </div>
 
-            <div class="field">
-              <label for="createdOn">Created On</label>
-              <input pInputText id="createdOn"  type="date" onclick="datePicker()"/>
-            </div>
+      <div class="field">
+        <label for="createdOn">Created On</label>
+        <input pInputText id="createdOn" type="date" />
+      </div>
 
-            <div class="field">
-              <label for="client">Client</label>
-              <input pInputText id="client"  />
-            </div>
+      <div class="field">
+        <label for="client">Client</label>
+        <input pInputText id="client" />
+      </div>
 
-            <div class="field">
-              <label for="createdProjectOperation">Project Operation</label>
-              <input
-                pInputText
-                id="createdProjectOperation"
-                
-              />
-            </div>
+      <div class="field">
+        <label for="createdProjectOperation">Project Operation</label>
+        <input pInputText id="createdProjectOperation" />
+      </div>
 
-            <div class="field">
-              <label for="status">Status</label>
-              <input pInputText id="status"  />
-            </div>
+      <div class="field">
+        <label for="status">Status</label>
+        <input pInputText id="status" />
+      </div>
 
-            <div class="field">
-              <label for="id">Project ID</label>
-              <input pInputText id="id" readonly />
-            </div>
+      <div class="field">
+        <label for="id">Project ID</label>
+        <input pInputText id="id" readonly />
+      </div>
 
-            <div class="flex justify-end gap-2 mt-4">
-              <p-button label="Cancel" severity="secondary" (click)="visible = false" />
-              <p-button label="Create"/>
-              <!-- <p-button label="Save"
-               (click)="saveProject()" /> -->
-            </div>
-          </div>
-        </p-dialog>
+      <div class="flex justify-end gap-2 mt-4">
+        <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+        <p-button label="Create" />
       </div>
     </div>
-  </div>
+  </p-dialog>
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" class="p-table">
-      <!-- S.No Column -->
-      <ng-container matColumnDef="sno">
-        <th mat-header-cell *matHeaderCellDef>S.No</th>
-        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
-      </ng-container>
+  <!-- Table -->
+  <p-table
+    [value]="projects"
+    [paginator]="true"
+    [rows]="8"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ 'min-width': '70rem' }"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} projects"
+    [responsiveLayout]="'scroll'"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>S.No</th>
+        <th>Project Name</th>
+        <th>PO Number</th>
+        <th>Created By</th>
+        <th>Created On</th>
+        <th>Client</th>
+        <th>Operation</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
 
-      <!-- Project Name -->
-      <ng-container matColumnDef="projectName">
-        <th mat-header-cell *matHeaderCellDef>Project Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.projectName }}</td>
-      </ng-container>
-
-      <!-- PO Number -->
-      <ng-container matColumnDef="poNumber">
-        <th mat-header-cell *matHeaderCellDef>PO Number</th>
-        <td mat-cell *matCellDef="let element">{{ element.poNumber }}</td>
-      </ng-container>
-
-      <!-- Created By -->
-      <ng-container matColumnDef="createdBy">
-        <th mat-header-cell *matHeaderCellDef>Created By</th>
-        <td mat-cell *matCellDef="let element">{{ element.createdBy }}</td>
-      </ng-container>
-
-      <!-- Client -->
-      <ng-container matColumnDef="client">
-        <th mat-header-cell *matHeaderCellDef>Client</th>
-        <td mat-cell *matCellDef="let element">{{ element.client }}</td>
-      </ng-container>
-
-      <!-- Created On -->
-      <ng-container matColumnDef="createdOn">
-        <th mat-header-cell *matHeaderCellDef>Created On</th>
-        <td mat-cell *matCellDef="let element">{{ element.createdOn }}</td>
-      </ng-container>
-
-      <!-- Created Project Operation -->
-      <ng-container matColumnDef="createdProjectOperation">
-        <th mat-header-cell *matHeaderCellDef>Created Project Operation</th>
-        <td mat-cell *matCellDef="let element" style="text-align: center; color: #dc3545">
-          {{ element.createdProjectOperation }}
+    <ng-template pTemplate="body" let-project let-rowIndex="rowIndex">
+      <tr>
+        <td>{{ rowIndex + 1 }}</td>
+        <td>{{ project.projectName }}</td>
+        <td>{{ project.poNumber }}</td>
+        <td>{{ project.createdBy }}</td>
+        <td>{{ project.createdOn }}</td>
+        <td>{{ project.client }}</td>
+        <td>{{ project.createdProjectOperation }}</td>
+        <td>
+          <span class="status-badge" [ngClass]="project.status.toLowerCase()">
+            {{ project.status }}
+          </span>
         </td>
-      </ng-container>
-
-      <!-- Status -->
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element" style="color: #30b0a0">{{ element.status }}</td>
-      </ng-container>
-
-      <!-- Action -->
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef>Action</th>
-        <td mat-cell *matCellDef="let element">
-          <div class="dropdown">
-            <button
-              class="btn p-0 border-0"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <img src="assets/images/projects/menu.svg" alt="Menu" width="20" height="20" />
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <button class="dropdown-item d-flex align-items-center" (click)="onEdit(element)">
-                  <img src="assets/edit.svg" class="me-2" width="18" height="18" /> Edit
-                </button>
-              </li>
-              <li>
-                <button class="dropdown-item d-flex align-items-center" (click)="onDelete(element)">
-                  <img src="assets/delete.svg" class="me-2" width="18" height="18" /> Delete
-                </button>
-              </li>
-              <li>
-                <button class="dropdown-item d-flex align-items-center">
-                  <img src="assets/close.svg" class="me-2" width="18" height="18" /> Close
-                </button>
-              </li>
-            </ul>
-          </div>
+        <td>
+          <p-menu #actionMenu [popup]="true" [model]="actionItems" appendTo="body"></p-menu>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-ellipsis-v"
+            class="p-button-text p-button-rounded p-button-sm"
+            (click)="actionMenu.toggle($event)"
+          ></button>
         </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-    <!-- Fixed page size, styled paginator -->
-    <mat-paginator
-      [length]="dataSource.data.length"
-      [pageSize]="12"
-      [pageSizeOptions]="[12]"
-      showFirstLastButtons
-      class="custom-paginator"
-    >
-    </mat-paginator>
-
-    <!-- <p-paginator
-      (onPageChange)="onPageChange($event)"
-      [first]="first"
-      [rows]="rows"
-      [totalRecords]="120"
-      [rowsPerPageOptions]="[10, 20, 30]"
-    /> -->
-  </div>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
