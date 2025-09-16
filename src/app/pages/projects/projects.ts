@@ -6,6 +6,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { PaginatorModule } from 'primeng/paginator';
+import { Dialog } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { AvatarModule } from 'primeng/avatar';
+
 
 export interface Project {
   projectName: string;
@@ -27,7 +33,12 @@ export interface Project {
     MatTableModule,
     MatSortModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    PaginatorModule,
+    Dialog,
+    ButtonModule,
+    InputTextModule,
+    AvatarModule
   ],
   templateUrl: './projects.html',
   styleUrls: ['./projects.scss']
@@ -57,7 +68,7 @@ export class Projects implements OnInit {
         createdOn: '2025-08-12',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '689af115e75ffe5a989fbe17'
       },
       {
@@ -67,7 +78,7 @@ export class Projects implements OnInit {
         createdOn: '2025-08-12',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '689af115e75ffe5a989fbe17'
       },
       {
@@ -77,7 +88,7 @@ export class Projects implements OnInit {
         createdOn: '2025-08-12',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '689af115e75ffe5a989fbe17'
       },
       {
@@ -87,7 +98,7 @@ export class Projects implements OnInit {
         createdOn: '2025-08-12',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '689af115e75ffe5a989fbe17'
       },
       {
@@ -97,7 +108,7 @@ export class Projects implements OnInit {
         createdOn: '2025-08-12',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '689af115e75ffe5a989fbe17'
       },
       {
@@ -107,7 +118,7 @@ export class Projects implements OnInit {
         createdOn: '2025-08-12',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '689af115e75ffe5a989fbe17'
       },
       {
@@ -117,7 +128,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -127,7 +138,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -137,7 +148,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
        createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -147,7 +158,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -157,7 +168,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -167,7 +178,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -177,7 +188,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -187,7 +198,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -197,7 +208,7 @@ export class Projects implements OnInit {
         createdOn: '2025/07/14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       },
       {
@@ -207,7 +218,7 @@ export class Projects implements OnInit {
         createdOn: '2025-07-14',
         client: 'Test Client',
         createdProjectOperation: '1',
-        status: 'SUCCESS',
+        status: 'Active',
         id: '68750fa67cf4086a2784f72b'
       }
     ];
@@ -226,4 +237,11 @@ export class Projects implements OnInit {
   onDelete(project: Project) {
     console.log('Delete clicked', project);
   }
+
+  // dialog form
+   visible: boolean = false;
+
+    showDialog() {
+        this.visible = true;
+    }
 }

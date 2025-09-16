@@ -30,7 +30,7 @@ export class Header {
 
 
   // dark/light mode:
-  isDarkMode = false;
+  isDarkMode = true;
 
   toggleTheme() {
     // dark theme implementation section

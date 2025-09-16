@@ -1,13 +1,35 @@
 <div class="w-100 project-container border-rd-25 bg-white mb-2">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h3 class="">Projects</h3>
-
     <div class="d-flex justify-content-between align-items-center gap-2">
       <div>
         <button class="create-btn d-flex align-items-center">
           <img src="assets/images/projects/add.svg" alt="add-icon" width="24" class="me-2" />
           <span>Create</span>
         </button>
+      </div>
+      <div class="card flex justify-center">
+        <p-button (click)="showDialog()" label="Create" />
+        <p-dialog
+          header="Create New Project"
+          [modal]="true"
+          [(visible)]="visible"
+          [style]="{ width: '60rem',height:'60rem',backgroundColor:'white',color:'black' }"
+        >
+          <span class="p-text-secondary block mb-8">Update your information.</span>
+          <div class="flex items-center gap-4 mb-4">
+            <label for="username" class="font-semibold w-24">Username</label>
+            <input pInputText id="username" class="flex-auto" autocomplete="off" />
+          </div>
+          <div class="flex items-center gap-4 mb-8">
+            <label for="email" class="font-semibold w-24">Email</label>
+            <input pInputText id="email" class="flex-auto" autocomplete="off" />
+          </div>
+          <div class="flex justify-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+            <p-button label="Save" (click)="visible = false" />
+          </div>
+        </p-dialog>
       </div>
     </div>
   </div>
@@ -111,5 +133,13 @@
       class="custom-paginator"
     >
     </mat-paginator>
+
+    <!-- <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="120"
+      [rowsPerPageOptions]="[10, 20, 30]"
+    /> -->
   </div>
 </div>
