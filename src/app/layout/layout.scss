@@ -10,3 +10,13 @@ main {
   background-color: #f0f0f0;
 }
 
+
+/* Utility classes for quick use */
+.bg-body {
+  background-color: var(--root-bg) !important;
+}
+.text-body {
+  color: var(--text-color) !important;
+}
+
+

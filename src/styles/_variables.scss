@@ -1,0 +1,36 @@
+@use "colors" as *;
+
+:root[data-theme="light"] {
+  --body-bg: #f0f0f0;
+  --root-bg:#f0f0f0;
+  --text-color-sidebar:white;
+  --project-container:white;
+  --table-head:#f4e8ff;
+  --toggle-theme:#f4e8ff;
+  --table-head-text:black;
+  --table-body:white;
+  --table-text:#333;
+  --text-color: #000000;
+  --primary: #{$primary};
+}
+
+:root[data-theme="dark"] {
+  --body-bg: #1a1b24;
+  --root-bg:#000000;
+  --table-head:#8d1cff;
+  --project-container:#1a1b24;
+  --toggle-theme:#1a1b24;
+  --table-head-text:white;
+  --table-body:#050505;
+  --table-text:white;
+  --text-color: #ffffff;
+  --primary: #{$primary};
+}
+
+/* Utility classes for quick use */
+.bg-body {
+  background-color: var(--body-bg) !important;
+}
+.text-body {
+  color: var(--text-color) !important;
+}

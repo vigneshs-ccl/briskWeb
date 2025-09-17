@@ -4,9 +4,11 @@
 // components according to the Material 3 design spec.
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
+@use "./styles/colors";
+@use "./styles/variables";
 @use '@angular/material' as mat;
+@import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
-
 
 html {
   @include mat.theme((
@@ -47,3 +49,10 @@ html, body { height: 100%; }
 body { margin: 0; font-family: "Satoshi"}
 
 
+/* PrimeNG overlays follow theme */
+.p-dialog,
+.p-datepicker,
+.p-dropdown-panel {
+  background: var(--body-bg);
+  color: var(--text-color);
+}

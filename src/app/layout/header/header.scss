@@ -52,8 +52,8 @@ textarea:focus {
   background-position: right 12px center;
   background-size: 14px;
   border-radius: 12px;
-  color: gray; /* Default text color */
-  background-color: #fff;
+  color: var(--table-text); /* Default text color */
+  background-color: var(--body-bg);
   cursor: pointer;
   border-color: #dee2e6;
   /* Allow manual resizing via ngStyle */
@@ -105,7 +105,10 @@ textarea:focus {
   border: 0.2px solid #96969a !important;
   align-items: center;
   justify-content: center;
+  
 }
+
+
 
 // theme conatainer
 /* Container styling */
@@ -133,7 +136,7 @@ textarea:focus {
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background-color: rgb(58, 58, 58);
+  background-color: var(--toggle-theme);
   border-radius: 50px;
   transition: background-color 0.3s ease;
   background-image: url("/assets/images/header/sun.svg");
@@ -149,7 +152,7 @@ textarea:focus {
     width: 46px;
     left: 4px;
     top: 2px; 
-    background-color: white;
+    background-color: var(--table-body);
     border-radius: 50%;
     background-image: url("/assets/images/header/moon.svg");
     background-repeat: no-repeat;
@@ -161,7 +164,7 @@ textarea:focus {
 
 /* When checked - animate to dark mode look */
 .custom-switch-input:checked + .custom-switch-slider {
-  background-color: rgb(232, 232, 233);
+  background-color: var(--toggle-theme);
   background-image: url("/assets/images/header/moon.svg");
   background-position: left 10px center;
 
@@ -211,4 +214,12 @@ button.btn i.bi {
 
 button.btn[aria-expanded="true"] i.bi {
   transform: rotate(180deg);
+}
+
+/* Utility classes for quick use */
+.bg-body {
+  background-color: var(--body-bg) !important;
+}
+.text-body {
+  color: var(--text-color) !important;
 }

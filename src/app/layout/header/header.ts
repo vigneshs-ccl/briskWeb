@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { ThemeService } from '../../services/theme.service';
 
 interface Languages  {
   lang:string;
@@ -28,12 +28,17 @@ export class Header {
   dropdownHeight = '50px';
   selectedLanguage = "en"
 
+  isDarkMode = false;
+  // isDarkMode = this.theme.currentTheme === 'dark';
+  
+  constructor(private theme: ThemeService) {}
 
-  // dark/light mode:
-  isDarkMode = true;
-
+  ngOnInit(): void {
+    this.isDarkMode = this.theme.currentTheme === 'dark';
+  }
   toggleTheme() {
-    // dark theme implementation section
-    console.log('Dark Mode:', this.isDarkMode);
+    this.theme.toggleTheme();
+    this.isDarkMode = this.theme.currentTheme === 'dark';
+    console.log('Theme switched to', this.theme.currentTheme);
   }
 }

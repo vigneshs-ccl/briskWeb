@@ -95,8 +95,6 @@
 }
 
 
-
-
 // new classes =============================
 
 ::ng-deep .card {
@@ -125,8 +123,8 @@
 
   /* Header */
   .p-datatable-thead > tr > th {
-    background-color: #f4e8ff;
-    color:black;
+    background-color: var(--table-head);
+    color:var(--table-head-text);
     font-size: 12px;
     font-weight: bold;
     padding: 0.75rem 1rem;
@@ -138,13 +136,13 @@
   /* Body rows */
   .p-datatable-tbody > tr {
     transition: background-color 0.2s ease;
-    background-color: #f0f0f0;
+    background-color: var(--table-body);
     td {
       font-size: 13px;
       font-weight: 400;
       padding: 0.75rem 1rem;
       border-bottom: 1px solid #eee;
-      color: #333;
+      color: var(--table-text);
     }
   }
 
@@ -232,3 +230,47 @@
   }
 
 
+// form validation error message styles
+.required {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+
+/* Utility classes for quick use */
+.bg-body {
+  background-color: var(--project-container)!important;
+}
+.text-body {
+  color: var(--text-color) !important;
+}
+
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px; // adjust as needed
+}
+
+// select styling
+.form-select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+}
+
+
+/* Highlight invalid and touched input/select fields in red */
+.project-form input.ng-invalid.ng-touched,
+.project-form select.ng-invalid.ng-touched {
+  border: 1px solid red !important;
+  border-radius: 4px;
+}

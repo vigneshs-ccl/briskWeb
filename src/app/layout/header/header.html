@@ -1,12 +1,12 @@
 <div class="d-flex align-items-center header-wrapper justify-content-between px-5 py-5">
   <div
-    class="d-flex align-items-center rounded-pill px-3 search-container shadow-sm cursor flex-wrap bg-white"
+    class="d-flex align-items-center rounded-pill px-3 search-container shadow-sm cursor flex-wrap bg-body text-body"
   >
     <img src="assets/images/header/search.svg" alt="search-icon" class="search-icon" />
     <input
       type="text"
       placeholder="Search..."
-      class="form-input-search border-0 custom-placeholder ms-2 search"
+      class="form-input-search border-0 custom-placeholder ms-2 search bg-body text-body"
     />
     <img src="assets/images/header/starsPurple.svg" alt="stars-icon" class="star ms-2" width="24" />
   </div>
@@ -27,8 +27,8 @@
 
     <!-- select language -->
     <div class="dropdown ms-4 d-flex align-items-center">
-      <div class="bg-bs-light globe-container p-1">
-        <img src="assets/images/header/global.svg" alt="globe-icon" />
+      <div class="bg-bs-light globe-container p-1 bg-body ">
+        <img src="assets/images/header/global.svg" alt="globe-icon" class="global-icon-img"/>
       </div>
 
       <select
@@ -63,7 +63,7 @@
         <!-- Toggle Button -->
         <button
           id="userDropdown"
-          class="btn border-0 p-0"
+          class="btn border-0 p-0 text-body"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -75,6 +75,7 @@
             fill="currentColor"
             class="bi bi-chevron-down"
             viewBox="0 0 16 16"
+            
           >
             <path
               fill-rule="evenodd"

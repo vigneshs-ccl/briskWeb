@@ -6,12 +6,12 @@
   padding-bottom: 15px;
 }
 
-.nav-link.active {
-  background-color: #8a2be2;
-  color: white;
-  border-radius: 16px;
-  font-weight: bold;
-}
+// .nav-link.active {
+//   background-color: #8a2be2;
+//   color: white;
+//   border-radius: 16px;
+//   font-weight: bold;
+// }
 
 .nav-item{
   margin-bottom: 15px;
@@ -21,7 +21,51 @@
   margin-right: 5px;
 }
 
-.nav-link.active img.logo {
-  filter: brightness(0) invert(1); 
+// .nav-link.active img.logo {
+//   filter: brightness(0) invert(1); 
+// }
+
+
+/* Light mode (default) */
+nav {
+  background-color: var(--project-container);
+  
+  color: var(--grey-400);
+  .nav-link {
+    // color: var(--text-color-sidebar);
+    transition: color 0.3s, background-color 0.3s;
+
+    &.active,
+    &:hover {
+      background-color: var(--primary);
+      color: var(--text-color-sidebar);
+      border-radius: 8px;
+    }
+
+    img.logo {
+      filter: none; /* Keep original logo colors */
+    }
+  }
 }
 
+/* Dark mode */
+[data-theme='dark'] nav {
+  background-color: #1a1b24; /* or var(--grey-900) */
+  color: #ffffff;
+
+  .nav-link {
+    color: var(--grey-200);
+
+    &.active,
+    &:hover {
+      background-color: var(--purple-500);
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    img.logo {
+      /* Invert logos for better visibility if they are dark */
+      filter: brightness(0) invert(1);
+    }
+  }
+}
