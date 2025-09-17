@@ -1,3 +1,23 @@
+/* styles.scss or a theme override file */
+:root {
+  --p-datepicker-panel-background: #ffffff;
+  --p-datepicker-panel-border-color: #d0b3ff;
+  --p-datepicker-panel-border-radius: 16px;
+  --p-datepicker-header-background: #8d1cff;
+  --p-datepicker-header-color: #ffffff;
+  --p-datepicker-date-hover-background: #f3e9ff;
+  --p-datepicker-date-selected-background: #8d1cff;
+  --p-datepicker-date-selected-color: #ffffff;
+  --p-datepicker-today-color: #8d1cff;
+  --p-datepicker-buttonbar-padding: 0.75rem;
+  --p-datepicker-dropdown-width: 18rem; /* Default is around 22rem */
+  
+  /* Optional: adjust for small or large screens */
+  --p-datepicker-dropdown-sm-width: 14rem;
+  --p-datepicker-dropdown-lg-width: 26rem;
+}
+
+
 .project-container{
   padding:26px 28px;
   border-radius: 10px;
@@ -17,53 +37,6 @@
 
 
 
-// custom paginator
-
-.custom-paginator {
-  display: flex;
-  justify-content: end;
-  padding: 10px 0;
-  background: none !important;
-}
-
-::ng-deep .mat-mdc-paginator-range-label,
-::ng-deep .mat-mdc-paginator-page-size {
-  display: none !important; /* hide default labels */
-}
-
-::ng-deep .mat-mdc-paginator-navigation-previous,
-::ng-deep .mat-mdc-paginator-navigation-next,
-::ng-deep .mat-mdc-paginator-navigation-first,
-::ng-deep .mat-mdc-paginator-navigation-last {
-  color: gray !important;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-::ng-deep .mat-mdc-paginator-range-actions button:hover {
-  background-color: #e4e4e7 !important;
-}
-
-::ng-deep .mat-mdc-paginator-page {
-  color: gray !important;
-  margin: 0 4px;
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: 500;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-::ng-deep .mat-mdc-paginator-page-active {
-  background-color: #8a2be2 !important; /* purple */
-  color: white !important;
-}
-
-
 // custom dialog styles
 
 ::ng-deep .custom-dialog {
@@ -73,6 +46,7 @@
 
   .p-dialog-content {
     background: white;
+    color: black;
     padding: 2rem;
   }
 
@@ -147,11 +121,13 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
+  
+
   /* Header */
   .p-datatable-thead > tr > th {
     background-color: #f4e8ff;
     color:black;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     padding: 0.75rem 1rem;
     text-align: left;
@@ -213,11 +189,15 @@
     }
   }
 
-  /* Paginator */
-  .p-datatable-paginator-bottom {
-    padding: 1rem 0 0;
-    border-top: 1px solid #eee;
-    justify-content: center;
+  
+}
+
+
+/* Paginator */
+::ng-deep .p-datatable-paginator-bottom {
+  padding: 1rem 0 0;
+  border-top: 1px solid #eee;
+  justify-content: end;
 
     .p-paginator-page.p-highlight {
       background-color: #8d1cff;
@@ -229,18 +209,26 @@
       font-size: 0.85rem;
       color: #555;
     }
-  }
 }
+
 
 
 ::ng-deep .p-button.p-button-text {
   padding: 0.25rem;
-  color: red;
+  color: #777;
+  border-radius: 30px;
 }
+
 
 ::ng-deep .p-menu .p-menuitem-link {
   font-size: 14px;
 }
 
+
+::ng-deep .p-dialog-header{
+    background-color: white;
+    color: black;
+
+  }
 
 

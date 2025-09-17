@@ -34,7 +34,7 @@
 
       <div class="field">
         <label for="createdOn">Created On</label>
-        <input pInputText id="createdOn" type="date" />
+        <p-datepicker></p-datepicker>
       </div>
 
       <div class="field">
@@ -49,12 +49,7 @@
 
       <div class="field">
         <label for="status">Status</label>
-        <input pInputText id="status" />
-      </div>
-
-      <div class="field">
-        <label for="id">Project ID</label>
-        <input pInputText id="id" readonly />
+        <input pInputText id="status" value="Active"/>
       </div>
 
       <div class="flex justify-end gap-2 mt-4">
@@ -68,8 +63,7 @@
   <p-table
     [value]="projects"
     [paginator]="true"
-    [rows]="8"
-    [rowsPerPageOptions]="[5, 10, 20]"
+    [rows]="12"
     [tableStyle]="{ 'min-width': '70rem' }"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} projects"
